@@ -21,8 +21,8 @@ def input_func(steps, dtype, device):
 class TestModule(torch.nn.Module) :
     def __init__(self) :
         super(TestModule, self).__init__()
-        self.conv1 = GraphConv(frozen_data.x.size()[-1], h_size).jittable()
-        self.conv2 = GraphConv(h_size, num_classes).jittable()
+        self.conv1 = GraphConv(frozen_data.x.size()[-1], h_size)
+        self.conv2 = GraphConv(h_size, num_classes)
 
     def forward(self, x, edge_index, y):
         x = F.relu(self.conv1(x, edge_index))
